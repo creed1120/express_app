@@ -1,18 +1,20 @@
 <%- include('partials/header'); -%>
 
-    <h1>
-        <% if (isRaining) { %>
-            <p>It is Raining.</p>
-        <% } else { %>
-            <p>It is NOT Raining.</p>
-       <% } %>
-    </h1>
+<h1>
+  <% if (isRaining) { %>
+  <p>It is Raining.</p>
+  <% } else { %>
+  <p>It is NOT Raining.</p>
+  <% } %>
+</h1>
 
-    <div>
-        <% pets.forEach(pet => { %>
-            <h2>Name: <%= pet.name %> <span>species (<i><%= pet.breed %></i>)</span></h2>
-            <h3>Favorite Treat: <%= pet.favoriteTreat %></h3>
-       <% }) %>
-    </div>
+<div>
+  <% pets.forEach(pet => { %>
+  <h2>
+    Name: <%= pet.name %> <span>species (<i><%= pet.breed %></i>)</span>
+  </h2>
+  <h3>Favorite Treat: <%= pet.favoriteTreat %></h3>
+  <% }) %>
+</div>
 
 <%- include('partials/footer'); -%>
