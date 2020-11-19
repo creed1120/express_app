@@ -2,11 +2,16 @@
  *      Express Web Server Setup
  /************************************************/
 
+const cors = require('cors');
  /******** Enable Express *********/
 const e = require('express');
 const express = require('express');
 // craete an instance of express()
 const app = express();
+
+app.use(cors());
+app.use(express.json());
+
 const path = require('path');
 
 /******** Port number varible/URL variable *********/
@@ -45,24 +50,40 @@ function getWeather(req, res, next) {
 /*************************************************
  *   SPA (single page application) route setup
  /************************************************/
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/frontend', 'home.html'))
-})
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/frontend', 'home.html'))
+// })
 
+// app.get("/api/animal/:name", (req, res) => {
+//     if (req.params.name === "meowsalot") {
+//       res.json({ name: "Meowsalot", species: "cat", "photo": "https://learnwebcode.github.io/json-example/images/cat-1.jpg", bio: "This cat is great and very vocal. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis asperiores, sunt consectetur a amet dolorem rem animi tempore molestias nesciunt fuga, sequi alias voluptatum totam reprehenderit assumenda deleniti distinctio? Cumque." })
+//     } else if (req.params.name === "barksalot") {
+//       res.json({ name: "Barksalot", species: "dog", "photo": "https://learnwebcode.github.io/json-example/images/dog-1.jpg", bio: "This dog is very communicative. Deleniti, tempora quis commodi qui inventore ratione rem porro doloribus et obcaecati cumque quibusdam voluptatibus iure nisi aut minima consequuntur, officiis esse? Lorem ipsum, dolor sit amet consectetur adipisicing elit." })
+//     } else if (req.params.name === "purrsloud") {
+//       res.json({ name: "Purrsloud", species: "cat", "photo": "https://learnwebcode.github.io/json-example/images/cat-2.jpg", bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis asperiores, sunt consectetur a amet dolorem rem animi tempore molestias nesciunt fuga, sequi alias voluptatum totam reprehenderit assumenda deleniti distinctio? Cumque. Lorem ipsum." })
+//     } else {
+//       res.json("Animal not found.")
+//     }
+//   })
 
-app.get('/api/:name', (req, res) => {
-    //console.log(req.params.name);
-    res.send('Check the console for the dynamic name.')
-})
+//   app.get("/fake-search", (req, res) => {
+//     console.log(req.query)
+//     res.json("Thank you for your request.")
+//   })
+
+//   app.post("/api/secret", (req, res) => {
+//     if (req.body.username === "johndoe" && req.body.password === "qwerty") {
+//       res.json("You have secret access for us to tell you that 2 + 2 is 4.")
+//     } else {
+//       res.json("That is incorrect.")
+//     }
+//   })
 
 /******** END spa route setup *******/
 
 
 // GET route with 'getWeather' function as Middleware
 // it can be in the route itself or add as "app.use()" to use Globally
-
-/**
- * UNCOMMENT
 
 // Home Route
 app.get('/', (req, res) => {
@@ -116,28 +137,25 @@ app.post('/result', (req, res) => {
 });
 
 
-app.get('/api/pets', (req, res) => {
-    res.json([
-        {
-            breed: 'Husky',
-            name: 'Soso',
-            favoriteTreat: 'Snickers'
-        },
-        {
-            breed: 'Poodle',
-            name: 'Sammsters',
-            favoriteTreat: 'Oreo Cookies'
-        },
-        {
-            breed: 'Alaskan Malmute',
-            name: 'Heroku',
-            favoriteTreat: 'Twinkies'
-        }
-    ])
-})
-
-* UNCOMMENT
-**/
+// app.get('/api/pets', (req, res) => {
+//     res.json([
+//         {
+//             breed: 'Husky',
+//             name: 'Soso',
+//             favoriteTreat: 'Snickers'
+//         },
+//         {
+//             breed: 'Poodle',
+//             name: 'Sammsters',
+//             favoriteTreat: 'Oreo Cookies'
+//         },
+//         {
+//             breed: 'Alaskan Malmute',
+//             name: 'Heroku',
+//             favoriteTreat: 'Twinkies'
+//         }
+//     ])
+// })
 
 app.listen(PORT);
 console.log(`Express Server up and running at: ${siteUrl}:${PORT}`);

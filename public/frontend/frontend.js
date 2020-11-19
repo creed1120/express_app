@@ -1,3 +1,7 @@
+/************************************************************************
+ *    SPA - Single Page Application ( Frontend Client-Side Routing )
+ ************************************************************************/
+
 // Initial page load - If someone visits a URL directly instead of clicking our links/buttons
 const startingLocation = window.location.pathname
 

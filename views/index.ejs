@@ -8,11 +8,11 @@
        <% } %>
     </h1>
 
-    <h1>
+    <div>
         <% pets.forEach(pet => { %>
-            <h1>Name: <%= pet.name %> <span>species(<%= pet.breed %>)</span></h1>
+            <h2>Name: <%= pet.name %> <span>species (<i><%= pet.breed %></i>)</span></h2>
             <h3>Favorite Treat: <%= pet.favoriteTreat %></h3>
        <% }) %>
-    </h1>
+    </div>
 
 <%- include('partials/footer'); -%>
