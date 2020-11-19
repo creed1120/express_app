@@ -15,8 +15,9 @@ app.use(express.json());
 const path = require('path');
 
 /******** Port number varible/URL variable *********/
-let PORT = 8800;
-let siteUrl = 'http://localhost';
+//let PORT = 3000;
+//let siteUrl = 'http://localhost';
+let localPort = 3000;
 
 /******** Set the VIEW Engine ( ejs, handlebars, pug ) *********/
 app.set('views', './views');
@@ -157,5 +158,5 @@ app.post('/result', (req, res) => {
 //     ])
 // })
 
-app.listen(PORT);
-console.log(`Express Server up and running at: ${siteUrl}:${PORT}`);
+app.listen(process.env.PORT || localPort);
+//console.log(`Express Server up and running at: ${siteUrl}`);
